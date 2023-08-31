@@ -1,5 +1,4 @@
 <script lang="ts">
-  import { browser } from '$app/environment'
   import { onMount } from 'svelte'
   import Card from './Card.svelte'
 
@@ -39,22 +38,20 @@
     }
   }
 
-  let headings = post.headings
-
   onMount(() => {
     updateHeadings()
     setActiveHeading()
   })
 
-  let activeHeading = headings[0]
-  let elements: (HTMLElement | null)[] = new Array()
+  let headings = post.headings,
+    activeHeading = headings[0],
+    elements: HTMLElement[] = new Array()
 
-  function updateHeadings() {
+  const updateHeadings = () => {
     headings = post.headings
 
-    elements = headings.map((heading) => {
-      const x = document.getElementById(heading.id)
-      return x
+    headings.forEach((item) => {
+      elements = [...elements, document.getElementById(item.id)!]
     })
   }
   const isInViewport = (targetElement: HTMLElement) => {
@@ -68,8 +65,9 @@
   }
 
   let activeArray: number[] = new Array()
-  let prevScrollY = 0
-  let scrollDirection = 'up'
+  let prevScrollY = 0,
+    scrollDirection = 'up'
+
   function setActiveHeading() {
     elements.forEach((item) => {
       if (isInViewport(item!)) {
