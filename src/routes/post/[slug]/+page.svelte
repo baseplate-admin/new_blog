@@ -1,13 +1,12 @@
-<script>
+<script lang="ts">
     import { website, name, bio, avatar } from "$lib/info";
     import ToC from "$lib/components/ToC.svelte";
     import ArrowLeftIcon from "$lib/components/ArrowLeftIcon.svelte";
     import SocialLinks from "$lib/components/SocialLinks.svelte";
     import { afterNavigate } from "$app/navigation";
     import PostDate from "$lib/components/PostDate.svelte";
-
-    /** @type {import('./$types').PageData} */
-    export let data;
+    import type { PageData } from "./$types";
+    export let data: PageData;
 
     // generated open-graph image for sharing on social media.
     // see https://og-image.vercel.app/ for more options.
