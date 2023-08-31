@@ -1,6 +1,8 @@
-Title: How I added <code>daphne</code> server dectection to <code>wappalyzer</code>
-Date: 2023-2-23
-Tags: django, daphne, wappalyzer
+---
+title: How I added daphne server dectection to wappalyzer
+date: 2023-2-23
+tags: django, daphne, wappalyzer
+---
 
 Back in the end of 2021 I was really amazed by `wappalyzer`. This seemingly small piece of extension can detect what the backend is ( albeit not guranteed ).
 
@@ -35,7 +37,7 @@ So being annoyed at `daphne` not being detected by `wappalyzer` ( which I mean i
 
 The Pull Request was accepted by [@aliasio](https://github.com/AliasIO) but I was shocked to see that `daphne` was still not detected by `wappalyzed`. Then diving deeper, It was being detected on [my social media project](https://github.com/baseplate-admin/Social-Media/tree/d84c4971aff58c5a9a9c73767a9bb2f1440d917c/backend) but not on [my other project](github.com/baseplate-admin/animecore). Panic seized me as I was frantically looking for answers. It couldn't be happening cause I saw that `server` header detection was how `wappalyzer` understood the backend software. I was pretty much sure that I saw `daphne` on the server header on [my chat application](https://github.com/baseplate-admin/Social-Media/tree/d84c4971aff58c5a9a9c73767a9bb2f1440d917c/backend).
 
-<img src="{static}/images/How I added daphne to wappalyzer detection/daphne-server-header-on-websocket.png" alt="Daphne Server Header on websocket" class="image-center" />
+![Daphne Server Header on websocket](./daphne-server-header-on-websocket.png)
 
 But then i realized that the header was only being sent on `websocket` responses but not on `http` responses.
 
@@ -49,13 +51,13 @@ Regardless I wanted the web to be open ( and by a large means allow others to se
 
 Then i pointed out other web servers doing things differently:
 
--   Gunicorn :
+- Gunicorn :
 
-    -   Captured from : https://launchpad.net/ <img src="{static}/images/How I added daphne to wappalyzer detection/gunicorn-shows-server-header-and-version.png" alt="Gunicorn Shows server header" class="image-center" />
+  - Captured from : https://launchpad.net/ ![]()
 
--   Uvicorn :
+- Uvicorn :
 
-    -   Ran [my application](https://github.com/baseplate-admin/Social-Media/tree/d84c4971aff58c5a9a9c73767a9bb2f1440d917c/backend) with `uvicorn core.asgi:application` <img src="{static}/images/How I added daphne to wappalyzer detection/uvicorn-shows-server-header.png" alt="Uvicorn Shows server header" class="image-center" />
+  - Ran [my application](https://github.com/baseplate-admin/Social-Media/tree/d84c4971aff58c5a9a9c73767a9bb2f1440d917c/backend) with `uvicorn core.asgi:application` ![]()
 
 So why was `daphne` ( a less popular server doing things differently )? Also they were already exposing `server` headers via `websockets` !!!
 
