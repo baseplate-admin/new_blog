@@ -35,7 +35,7 @@ So being annoyed at `daphne` not being detected by `wappalyzer` ( which I mean i
   },
 ```
 
-The Pull Request was accepted by [@aliasio](https://github.com/AliasIO) but I was shocked to see that `daphne` was still not detected by `wappalyzed`. Then diving deeper, It was being detected on [my social media project](https://github.com/baseplate-admin/Social-Media/tree/d84c4971aff58c5a9a9c73767a9bb2f1440d917c/backend) but not on [my other project](github.com/baseplate-admin/animecore). Panic seized me as I was frantically looking for answers. It couldn't be happening cause I saw that `server` header detection was how `wappalyzer` understood the backend software. I was pretty much sure that I saw `daphne` on the server header on [my chat application](https://github.com/baseplate-admin/Social-Media/tree/d84c4971aff58c5a9a9c73767a9bb2f1440d917c/backend).
+The Pull Request was accepted by [@aliasio](https://github.com/AliasIO) but I was shocked to see that `daphne` was still not detected by `wappalyzed`. Then diving deeper, It was being detected on [my social media project](https://github.com/baseplate-admin/Social-Media/tree/d84c4971aff58c5a9a9c73767a9bb2f1440d917c/backend) but not on [my other project](https://github.com/baseplate-admin/animecore). Panic seized me as I was frantically looking for answers. It couldn't be happening cause I saw that `server` header detection was how `wappalyzer` understood the backend software. I was pretty much sure that I saw `daphne` on the server header on [my chat application](https://github.com/baseplate-admin/Social-Media/tree/d84c4971aff58c5a9a9c73767a9bb2f1440d917c/backend).
 
 ![Daphne Server Header on websocket](./daphne-server-header-on-websocket.png)
 
