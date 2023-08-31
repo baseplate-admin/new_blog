@@ -21,8 +21,8 @@ dependencies:
     specifier: ^1.5.0
     version: 1.5.0
   reading-time-estimator:
-    specifier: ^1.4.33
-    version: 1.5.3
+    specifier: ^1.9.0
+    version: 1.9.0
 
 devDependencies:
   '@sveltejs/adapter-auto':
@@ -2134,8 +2134,8 @@ packages:
       picomatch: 2.3.1
     dev: true
 
-  /reading-time-estimator@1.5.3:
-    resolution: {integrity: sha512-fPVXYhpPasQMgj2ukiDzfQSF3WDnlyjFYoy/fC9euGxf94oPtdcWMMxSC2+/KevvRzRfxAX6JINR0v0T8FVE1g==}
+  /reading-time-estimator@1.9.0:
+    resolution: {integrity: sha512-fVuTlAfcYXE9A4KrTOq0Ao4vn9vJxYVFpATjS6KFA5xCK5RTmq6q74ICrO7ykF3Mg2XTgL9mBrwADgXQgEolIw==}
     dev: false
 
   /reading-time@1.5.0:
