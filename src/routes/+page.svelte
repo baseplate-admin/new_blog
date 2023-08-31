@@ -20,7 +20,7 @@
       <img
         src={avatar}
         alt={name}
-        class="mx-auto rounded-full w-36 h-36 ring-2 ring-zinc-200 dark:ring-zinc-700"
+        class="flex justify-center items-center mx-auto rounded-full w-36 h-36 ring-2 ring-zinc-200 dark:ring-zinc-700"
       />
       <div class="flex gap-6">
         <SocialLinks />
