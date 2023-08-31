@@ -1,9 +1,9 @@
 import { posts } from '$lib/data/posts'
 import { paginate } from '$lib/util'
 import { error } from '@sveltejs/kit'
+import type { PageLoad } from './$types';
 
-/** @type {import('./$types').PageServerLoad} */
-export async function load({ params }) {
+export const load: PageLoad = ({ params }) => { 
   let page = params.page ? parseInt(params.page) : 1
   let limit = 10
 
