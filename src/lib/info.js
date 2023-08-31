@@ -10,7 +10,8 @@ export const lastName = 'Admin'
 export const name = `${firstName}-${lastName}`
 
 // Used for the landing page & footer of posts
-export const avatar = 'https://www.libravatar.org/accounts/raw_image/17738'
+export const avatar =
+  'https://seccdn.libravatar.org/avatar/3852e481271f8a8973338c2e425dbc5f3dd615482dd06db18ed7fd5f99108589?s=512'
 export const bio = `\
 I’m ${name}, a software engineer based in Middle of Nowhere.
 `
