@@ -1,5 +1,5 @@
 {
-	"name": "sveltekit-blog-template",
+	"name": "baseplate-blog",
 	"version": "0.0.1",
 	"scripts": {
 		"dev": "vite dev",
