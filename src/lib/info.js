@@ -10,7 +10,7 @@ export const lastName = 'Admin'
 export const name = `${firstName}-${lastName}`
 
 // Used for the landing page & footer of posts
-export const avatar = 'https://picsum.photos/id/203/250/250'
+export const avatar = 'https://www.libravatar.org/accounts/raw_image/17738'
 export const bio = `\
 I’m ${name}, a software engineer based in Middle of Nowhere.
 `
