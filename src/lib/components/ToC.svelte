@@ -69,11 +69,18 @@
     scrollDirection = 'up'
 
   function setActiveHeading() {
+    let new_arr: number[] = []
+
     elements.forEach((item) => {
       if (isInViewport(item!)) {
-        activeArray = [...activeArray, elements.indexOf(item!)]
+        new_arr = [...new_arr, elements.indexOf(item!)]
       }
     })
+
+    if (new_arr.length > 0) {
+      activeArray = [...new_arr]
+    }
+
     const scrollY = window.scrollY
     const newScrollDirection = scrollY > prevScrollY ? 'down' : 'up'
     prevScrollY = scrollY
@@ -81,7 +88,6 @@
     if (scrollDirection === 'up') {
       activeHeading = headings[Math.min(...activeArray)]
     } else if (scrollDirection === 'down') {
-      console.log('hello')
       activeHeading = headings[Math.max(...activeArray)]
     }
   }
