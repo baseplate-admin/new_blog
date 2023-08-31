@@ -53,11 +53,11 @@ Then i pointed out other web servers doing things differently:
 
 - Gunicorn :
 
-  - Captured from : https://launchpad.net/ ![]()
+  - Captured from : https://launchpad.net/ ![Gunicorn shows version](./gunicorn-shows-server-header-and-version.png)
 
 - Uvicorn :
 
-  - Ran [my application](https://github.com/baseplate-admin/Social-Media/tree/d84c4971aff58c5a9a9c73767a9bb2f1440d917c/backend) with `uvicorn core.asgi:application` ![]()
+  - Ran [my application](https://github.com/baseplate-admin/Social-Media/tree/d84c4971aff58c5a9a9c73767a9bb2f1440d917c/backend) with `uvicorn core.asgi:application` ![Uvicorn Shows version](./uvicorn-shows-server-header.png)
 
 So why was `daphne` ( a less popular server doing things differently )? Also they were already exposing `server` headers via `websockets` !!!
 
