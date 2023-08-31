@@ -1,11 +1,45 @@
-<script>
+<script lang="ts">
   import { browser } from '$app/environment'
   import { onMount } from 'svelte'
   import Card from './Card.svelte'
 
-  export let post
+  export let post: {
+    title: string
+    date: string
+    tags: string
+    headings: {
+      depth: number
+      value: string
+      id: string
+    }[]
 
-  let elements = []
+    slug: string
+    isIndexFile: true
+    preview: {
+      html: string
+      text: string
+    }
+    readingTime: string
+    previous: {
+      title: string
+      date: string
+      tags: 'string'
+      headings: {
+        depth: number
+        value: string
+        id: string
+      }[]
+      slug: string
+      isIndexFile: boolean
+      preview: {
+        html: string
+        text: string
+      }
+      readingTime: string
+    }
+  }
+
+  let elements: (HTMLElement | null)[] = new Array()
   let headings = post.headings
 
   onMount(() => {
@@ -14,7 +48,7 @@
   })
 
   let activeHeading = headings[0]
-  let scrollY
+  let scrollY: number
 
   function updateHeadings() {
     headings = post.headings
@@ -25,11 +59,12 @@
       })
     }
   }
+
   function setActiveHeading() {
     scrollY = window.scrollY
 
     const visibleIndex =
-      elements.findIndex((element) => element.offsetTop + element.clientHeight > scrollY) - 1
+      elements.findIndex((element) => element!.offsetTop + element!.clientHeight > scrollY) - 1
 
     activeHeading = headings[visibleIndex]
 
