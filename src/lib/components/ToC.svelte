@@ -60,7 +60,7 @@
             Math.max(0, heading.depth - 1)
           }`}
         >
-          <a href={`#${heading.id}`}>{heading.value}</a>
+          <div class="ml-2"><a href={`#${heading.id}`}>{heading.value}</a></div>
         </li>
       {/each}
     </ul>
