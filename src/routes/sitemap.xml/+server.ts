@@ -1,23 +1,18 @@
-// This is an endpoint that generates a basic sitemap for the index page and all posts.
-// It's helpful for SEO but does require you to keep it updated to reflect the routes of your website.
-// It is OK to delete this file if you'd rather not bother with it.
+import type { RequestHandler } from './$types';
+import { posts } from '$lib/data/posts';
+import { website } from '$lib/info';
 
-import { posts } from '$lib/data/posts'
-import { website } from '$lib/info'
+export const prerender = true;
 
-export const prerender = true
+const getPostUrl = (slug: string) => `${website}/post/${slug}`;
 
-// make sure this matches your post route
-const getPostUrl = (slug) => `${website}/post/${slug}`
 
-/**
- * @type {import('@sveltejs/kit').RequestHandler}
- */
-export async function GET({ setHeaders }) {
+export const GET: RequestHandler = ({ setHeaders }) => {
+
   setHeaders({
     'Cache-Control': `max-age=0, s-max-age=600`,
     'Content-Type': 'application/xml'
-  })
+  });
 
   const xml = `<?xml version="1.0" encoding="UTF-8" ?>
     <urlset
@@ -52,7 +47,7 @@ export async function GET({ setHeaders }) {
           </url>`
         )
         .join('')}
-    </urlset>`
+    </urlset>`;
 
-  return new Response(xml)
+  return new Response(xml);
 }

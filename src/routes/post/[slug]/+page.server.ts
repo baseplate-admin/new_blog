@@ -1,8 +1,8 @@
 import { posts } from '$lib/data/posts'
 import { error } from '@sveltejs/kit'
+import type {PageServerLoad} from './$types';
 
-/** @type {import('./$types').PageServerLoad} */
-export async function load({ params }) {
+export const load: PageServerLoad = ({ params }) => { 
   const { slug } = params
 
   // get post with metadata
