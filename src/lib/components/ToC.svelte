@@ -39,7 +39,6 @@
     }
   }
 
-  let elements: (HTMLElement | null)[] = new Array()
   let headings = post.headings
 
   onMount(() => {
@@ -48,36 +47,34 @@
   })
 
   let activeHeading = headings[0]
-  let scrollY: number
+  let elements: (HTMLElement | null)[] = new Array()
 
   function updateHeadings() {
     headings = post.headings
 
-    if (browser) {
-      elements = headings.map((heading) => {
-        return document.getElementById(heading.id)
-      })
-    }
+    elements = headings.map((heading) => {
+      const x = document.getElementById(heading.id)
+      return x
+    })
+  }
+  const isInViewport = (targetElement: HTMLElement) => {
+    const rect = targetElement.getBoundingClientRect()
+    return (
+      rect.top >= 0 &&
+      rect.left >= 0 &&
+      rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+      rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+    )
   }
 
+  let activeArray: number[] = new Array()
   function setActiveHeading() {
-    scrollY = window.scrollY
-
-    const visibleIndex =
-      elements.findIndex((element) => element!.offsetTop + element!.clientHeight > scrollY) - 1
-
-    activeHeading = headings[visibleIndex]
-
-    const pageHeight = document.body.scrollHeight
-    const scrollProgress = (scrollY + window.innerHeight) / pageHeight
-
-    if (!activeHeading) {
-      if (scrollProgress > 0.5) {
-        activeHeading = headings[headings.length - 1]
-      } else {
-        activeHeading = headings[0]
+    elements.forEach((item) => {
+      if (isInViewport(item!)) {
+        activeArray = [...activeArray, elements.indexOf(item!)]
       }
-    }
+    })
+    activeHeading = headings[Math.min(...activeArray)]
   }
 </script>
 
