@@ -56,8 +56,11 @@
             if (heading_element) elements = [...new Set([...elements, heading_element])];
         });
     };
+    const isInViewport = (targetElement: HTMLElement) => {
+        const rect = targetElement.getBoundingClientRect();
+        return rect.top >= 0 && rect.left >= 0 && rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) && rect.right <= (window.innerWidth || document.documentElement.clientWidth);
+    };
 
-    let activeArray: number[] = new Array();
     let prevScrollY = 0,
         scrollDirection = "up";
     let intersection_index: Record<number, boolean> = {};
@@ -75,8 +78,6 @@
 
     let largest_true_key: number;
 
-    $: console.log(largest_true_key);
-
     function setActiveHeading() {
         elements.forEach((item) => {
             (observer as IntersectionObserver).observe(item);
@@ -89,14 +90,18 @@
             largest_true_key = Math.max(...true_keys);
         }
 
-        const scrollY = window.scrollY;
-        const newScrollDirection = scrollY > prevScrollY ? "down" : "up";
+        const scrollY = window.scrollY,
+            newScrollDirection = scrollY > prevScrollY ? "down" : "up";
         prevScrollY = scrollY;
         scrollDirection = newScrollDirection;
 
         if (scrollDirection === "up") {
             if (true_keys.length === 0) {
-                activeHeading = headings[largest_true_key - 1];
+                const previous_heading = headings[largest_true_key - 1];
+                console.log(previous_heading);
+                if (previous_heading !== activeHeading) {
+                    activeHeading = previous_heading;
+                }
             } else {
                 activeHeading = headings[Math.min(...true_keys)];
             }
