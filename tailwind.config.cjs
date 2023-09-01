@@ -102,6 +102,12 @@ module.exports = {
             color: 'var(--tw-prose-headings)',
             fontWeight: theme('fontWeight.semibold')
           },
+          h1 : {
+            fontSize: theme('fontSize.2xl')[0],
+            lineHeight: theme('lineHeight.7'),
+            marginTop: theme('spacing.4'),
+            marginBottom: theme('spacing.4')
+          },
           h2: {
             fontSize: theme('fontSize.xl')[0],
             lineHeight: theme('lineHeight.7'),
