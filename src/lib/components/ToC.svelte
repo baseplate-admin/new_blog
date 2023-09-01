@@ -96,8 +96,8 @@
         prevScrollY = scrollY;
         scrollDirection = newScrollDirection;
 
-        const last_element = elements.at(-1);
-        if (window.scrollY > last_element!.offsetTop + last_element!.offsetHeight) {
+        const last_element = elements.at(-1) as HTMLElement;
+        if (scrollY > last_element.offsetTop + last_element.offsetHeight) {
             scrolled_passed_last_element = true;
         } else {
             scrolled_passed_last_element = false;
