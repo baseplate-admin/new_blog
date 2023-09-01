@@ -74,6 +74,7 @@
     let observer = browser && new IntersectionObserver(callback, options);
 
     let largest_true_key: number;
+
     $: console.log(largest_true_key);
 
     function setActiveHeading() {
@@ -84,10 +85,9 @@
             .filter((key) => intersection_index[Number(key)] === true)
             .map((str) => Number(str));
 
-        // Map
-        // if (true_keys.length !== 0) {
-        //     largest_true_key = Math.max(...true_keys);
-        // }
+        if (true_keys.length > 0) {
+            largest_true_key = Math.max(...true_keys);
+        }
 
         const scrollY = window.scrollY;
         const newScrollDirection = scrollY > prevScrollY ? "down" : "up";
@@ -95,9 +95,17 @@
         scrollDirection = newScrollDirection;
 
         if (scrollDirection === "up") {
-            activeHeading = headings[Math.min(...true_keys)];
+            if (true_keys.length === 0) {
+                activeHeading = headings[largest_true_key - 1];
+            } else {
+                activeHeading = headings[Math.min(...true_keys)];
+            }
         } else if (scrollDirection === "down") {
-            activeHeading = headings[Math.max(...true_keys)];
+            if (true_keys.length === 0) {
+                activeHeading = headings[largest_true_key];
+            } else {
+                activeHeading = headings[Math.max(...true_keys)];
+            }
         }
     }
 </script>
