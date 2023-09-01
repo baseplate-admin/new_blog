@@ -60,9 +60,10 @@ function headings() {
       id: heading.value
           .normalize('NFKD')
           .replace(/[\u0300-\u036f]/g, '')
-          .trim() 
+          .trim()
           .toLowerCase()
           .replace(/\s+/g, '-') // replace spaces with hyphens
+          .replace(/[^a-z0-9-]/g, '')
     }))
   }
 }
