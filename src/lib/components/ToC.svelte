@@ -1,6 +1,7 @@
 <script lang="ts">
-    import { onMount } from "svelte";
+    import { beforeUpdate, onMount } from "svelte";
     import Card from "./Card.svelte";
+    import { browser } from "$app/environment";
 
     export let post: {
         title: string;
@@ -37,9 +38,10 @@
             readingTime: string;
         };
     };
-
-    onMount(() => {
+    beforeUpdate(() => {
         updateHeadings();
+    });
+    onMount(() => {
         setActiveHeading();
     });
 
@@ -51,39 +53,51 @@
         headings = post.headings;
         headings.forEach((item) => {
             const heading_element = document.getElementById(item.id);
-            if (heading_element) elements = [...elements, heading_element];
+            if (heading_element) elements = [...new Set([...elements, heading_element])];
         });
-    };
-    const isInViewport = (targetElement: HTMLElement) => {
-        const rect = targetElement.getBoundingClientRect();
-        return rect.top >= 0 && rect.left >= 0 && rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) && rect.right <= (window.innerWidth || document.documentElement.clientWidth);
     };
 
     let activeArray: number[] = new Array();
     let prevScrollY = 0,
         scrollDirection = "up";
+    let intersection_index: Record<number, boolean> = {};
+
+    const options = {
+        root: null,
+        threshold: 0.2
+    };
+    const callback = function (entries: any[], observer: any) {
+        entries.forEach((entry) => {
+            intersection_index[elements.indexOf(entry.target)] = entry.isIntersecting;
+        });
+    };
+    let observer = browser && new IntersectionObserver(callback, options);
+
+    let largest_true_key: number;
+    $: console.log(largest_true_key);
 
     function setActiveHeading() {
-        let new_arr: number[] = [];
-
         elements.forEach((item) => {
-            if (isInViewport(item!)) {
-                new_arr = [...new_arr, elements.indexOf(item!)];
-            }
+            (observer as IntersectionObserver).observe(item);
         });
+        const true_keys = Object.keys(intersection_index)
+            .filter((key) => intersection_index[Number(key)] === true)
+            .map((str) => Number(str));
 
-        if (new_arr.length > 0) {
-            activeArray = [...new_arr];
-        }
+        // Map
+        // if (true_keys.length !== 0) {
+        //     largest_true_key = Math.max(...true_keys);
+        // }
 
         const scrollY = window.scrollY;
         const newScrollDirection = scrollY > prevScrollY ? "down" : "up";
         prevScrollY = scrollY;
         scrollDirection = newScrollDirection;
+
         if (scrollDirection === "up") {
-            activeHeading = headings[Math.min(...activeArray)];
+            activeHeading = headings[Math.min(...true_keys)];
         } else if (scrollDirection === "down") {
-            activeHeading = headings[Math.max(...activeArray)];
+            activeHeading = headings[Math.max(...true_keys)];
         }
     }
 </script>
