@@ -76,6 +76,7 @@
     };
     let observer = browser && new IntersectionObserver(callback, options);
 
+    let scrolled_passed_last_element: boolean;
     let largest_true_key: number;
 
     function setActiveHeading() {
@@ -95,18 +96,21 @@
         prevScrollY = scrollY;
         scrollDirection = newScrollDirection;
 
+        const last_element = elements.at(-1);
+        if (window.scrollY > last_element!.offsetTop + last_element!.offsetHeight) {
+            scrolled_passed_last_element = true;
+        } else {
+            scrolled_passed_last_element = false;
+        }
+
         if (scrollDirection === "up") {
-            if (true_keys.length === 0) {
-                const previous_heading = headings[largest_true_key - 1];
-                console.log(previous_heading);
-                if (previous_heading !== activeHeading) {
-                    activeHeading = previous_heading;
-                }
+            if (true_keys.length === 0 && !scrolled_passed_last_element) {
+                activeHeading = headings[largest_true_key - 1];
             } else {
                 activeHeading = headings[Math.min(...true_keys)];
             }
         } else if (scrollDirection === "down") {
-            if (true_keys.length === 0) {
+            if (true_keys.length === 0 && !scrolled_passed_last_element) {
                 activeHeading = headings[largest_true_key];
             } else {
                 activeHeading = headings[Math.max(...true_keys)];
