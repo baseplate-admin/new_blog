@@ -49,9 +49,9 @@
 
     const updateHeadings = () => {
         headings = post.headings;
-
         headings.forEach((item) => {
-            elements = [...elements, document.getElementById(item.id)!];
+            const heading_element = document.getElementById(item.id);
+            if (heading_element) elements = [...elements, heading_element];
         });
     };
     const isInViewport = (targetElement: HTMLElement) => {
