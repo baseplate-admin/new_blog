@@ -8,7 +8,7 @@ It's no surprise that `django-ninja` is the next big thing for `django`. But as 
 
 This article tries to cover how to make a `permission_required` decorator with `django-ninja`.
 
-**This article assumes that developer is familiar with [**python decorators**](https://docs.python.org/3/glossary.html#term-decorator)**
+**This article assumes that developer is familiar with [python decorators](https://docs.python.org/3/glossary.html#term-decorator)**
 
 Now that the boring part is out of the equation, let's see how we can implement a `permission_required` decorator.
 
