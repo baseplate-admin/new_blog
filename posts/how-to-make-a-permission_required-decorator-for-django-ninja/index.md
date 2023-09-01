@@ -121,6 +121,9 @@ and **Voila!** you have a functional `permission_required` decorator.
 
 Take it for a spin. Good luck on your journey.
 
+<!-- 
 # How does this work
 
 **This section is meant for advanced developers who atleast have a basic understanding of [`dependency-injection`](https://en.wikipedia.org/wiki/Dependency_injection) and [`django-ninja`](https://github.com/vitalik/django-ninja/) architecture**
+
+-->
