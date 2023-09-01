@@ -128,7 +128,7 @@
 
         <!-- bio -->
         <hr />
-        <div class="py-8">
+        <footer class="py-8">
             <div class="grid gap-8">
                 <div class="flex justify-center order-1 col-span-2 gap-6 md:order-2">
                     <SocialLinks />
@@ -149,7 +149,7 @@
                     {bio}
                 </p>
             </div>
-        </div>
+        </footer>
     </div>
 
     <!-- table of contents -->
