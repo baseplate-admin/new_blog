@@ -32,11 +32,8 @@ function videos() {
         node.type = 'html'
         node.value = `
             <video 
+              controls
               src="${node.url}"
-              autoplay
-              muted
-              playsinline
-              loop
               title="${node.alt}"
             />
           `
