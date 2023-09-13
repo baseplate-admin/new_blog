@@ -55,6 +55,7 @@
         headings = post.headings;
         headings.forEach((item) => {
             const heading_element = document.getElementById(item.id);
+            
             if (heading_element) elements = [...new Set([...elements, heading_element])];
         });
     };
