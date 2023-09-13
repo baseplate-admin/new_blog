@@ -8,7 +8,6 @@
 		"build:static": "cross-env BUILD_STATIC_ENV=static vite build",
 		"build:node": "cross-env BUILD_NODE_ENV=node vite build",
 		"preview": "vite preview",
-
 		"check": "svelte-check --tsconfig ./jsconfig.json",
 		"check:watch": "svelte-check --tsconfig ./jsconfig.json --watch",
 		"lint": "prettier --check . && eslint --ignore-path .gitignore .",
@@ -33,7 +32,7 @@
 		"postcss": "^8.4.14",
 		"postcss-load-config": "^4.0.1",
 		"prettier": "^3.0.3",
-		"prettier-plugin-svelte": "^2.5.1",
+		"prettier-plugin-svelte": "^3",
 		"rehype-autolink-headings": "^7.0.0",
 		"rehype-slug": "^6.0.0",
 		"remark-reading-time": "^2.0.1",
