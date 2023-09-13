@@ -23,24 +23,11 @@ So after playing Genshin I was delving deeper into it's fanfiction and stuff. On
 and this video too :
 
 ![jean-deluc-anime](./Jean-deluc-anime.av1)
+<sub> 
 
-<sub> Source : 
-<b>
+Source : [**Youtube**](https://www.youtube.com/watch/NuJceGJdDo8) & [**bilibili**](https://www.bilibili.com/video/BV1gL411n7rd/) | Artist : **小驴子尾巴** | Subtitle by : [**@Weeblicious**](https://www.youtube.com/@Weeblicious) 
 
-[Youtube](https://www.youtube.com/watch/NuJceGJdDo8)
-
-</b>
-
- & 
- <b>
- 
- [bilibili](https://www.bilibili.com/video/BV1gL411n7rd/)
- 
- </b>
-
- | Artist : **小驴子尾巴** | Subtitle by : **[@Weeblicious](https://www.youtube.com/@Weeblicious)** 
- 
- </sub>
+</sub>
 
 I really liked the words in the songs ( as someday I dream to have a wife like that **≧◡≦** )
 
