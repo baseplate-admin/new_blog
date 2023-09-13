@@ -2,7 +2,7 @@
     import { beforeUpdate, onMount } from "svelte";
     import Card from "./Card.svelte";
     import { browser } from "$app/environment";
-
+    import debounce from "lodash/debounce";
     export let post: {
         title: string;
         date: string;
@@ -79,7 +79,7 @@
     let scrolled_passed_last_element: boolean;
     let largest_true_key: number;
 
-    function setActiveHeading() {
+    const setActiveHeading = debounce(() => {
         elements.forEach((item) => {
             (observer as IntersectionObserver).observe(item);
         });
@@ -116,7 +116,7 @@
                 activeHeading = headings[Math.max(...true_keys)];
             }
         }
-    }
+    }, 5);
 </script>
 
 <svelte:window on:scroll={setActiveHeading} />
