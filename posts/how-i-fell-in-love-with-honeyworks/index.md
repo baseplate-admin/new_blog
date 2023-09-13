@@ -12,7 +12,7 @@ Day by day I was more addicted to Genshin. With my sole goal being to overthrow 
 
 So after playing Genshin I was delving deeper into it's fanfiction and stuff. One of the more popular fan-fic was the Diluc and Jean ship. So suddenly a Youtube video popped into my daily feed. It was this video :
 
-![genshin](./Genshin.mp4)
+![genshin](./Genshin.av1)
 
 <sub>
 
@@ -22,7 +22,7 @@ So after playing Genshin I was delving deeper into it's fanfiction and stuff. On
 
 and this video too :
 
-![jean-deluc-anime](./Jean-deluc-anime.mp4)
+![jean-deluc-anime](./Jean-deluc-anime.av1)
 
 <sub> Source : 
 <b>
