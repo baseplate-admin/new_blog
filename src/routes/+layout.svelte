@@ -1,8 +1,8 @@
 <script lang="ts">
     import "../app.css";
     import "../prism.css";
-    import MoonIcon from "heroicons-svelte/solid/MoonIcon.svelte";
-    import SunIcon from "heroicons-svelte/solid/SunIcon.svelte";
+    import { MoonIcon } from "heroicons-svelte/24/solid";
+    import { SunIcon } from "heroicons-svelte/24/solid";
     import { browser } from "$app/environment";
     import { name } from "$lib/info";
     import { page } from "$app/stores";
