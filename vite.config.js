@@ -10,9 +10,13 @@ export default defineConfig({
       // Disable console
       drop: ["console", "debugger"]
   },
+  assetsInclude:[
+    "**/*.av1",
+  ],
   build: {
     target: "esnext",
-    sourcemap: true
+    sourcemap: true,
+    
 },
 css: {
     devSourcemap: true
