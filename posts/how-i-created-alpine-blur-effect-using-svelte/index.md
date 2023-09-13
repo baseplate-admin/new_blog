@@ -45,11 +45,8 @@ When `enter-end` stage is complete, the component will shift from `enter-end` to
 Now that we have that out of the way let's dive deeper.
 
 1. We are adding `transition-all` ( refer to [tailwind docs](https://tailwindcss.com/docs/transition-property) to see what this class adds ) to the parent element. This ensures that we are doing transition on both `opacity` and `blur`.
-
 2. Then we are toggling state ( so that transition is started ) by binding `x-show` directive. ( [_refer to the alpine.js docs for how `x-show` works_](https://alpinejs.dev/directives/show) )
-
 3. When the transition starts. We are changing the **`opacity: 0.5;`** and at the same time adding **`filter: blur(4px);`** to the element.
-
 4. Then when the transition ends, we are shifting from `opacity: 0.5;` to `opacity: 1;` and at the same time removing blur ( remember that our effect is to meant the animation to fade in and out | This essentially makes the old element look like they blurred out )
 
 ... Repeat it from the opposite for the new element
