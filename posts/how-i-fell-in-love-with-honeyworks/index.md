@@ -10,20 +10,13 @@ Day by day I was more addicted to Genshin. With my sole goal being to overthrow 
 
 So after playing Genshin I was delving deeper into it's fanfiction and stuff. One of the more popular fan-fic was the Diluc and Jean ship. So suddenly a Youtube video popped into my daily feed. It was this video :
 
-<div class="aspect-w-16 aspect-h-9">
-    <video width="736" height="414" controls style='margin: 0px;'>
-        <source src="./Genshin.mp4">
-    </video>
-</div>
+![genshin](./Genshin.mp4)
+
 <sub> Source : **[Youtube](https://www.youtube.com/watch/KpZvpVcmo5Q)** & **[bilibili](https://www.bilibili.com/video/BV1MP4y1p7UH/)** | Artist : **果依123** | Subtitle by : [**@Weeblicious**](https://www.youtube.com/@Weeblicious) </sub>
 
 and this video too :
 
-<div class="aspect-w-16 aspect-h-9">
-    <video width="736" height="414" controls style='margin: 0px;'>
-        <source src="./Jean-deluc-anime.mp4">
-    </video>
-</div>
+![jean-deluc-anime](./Jean-deluc-anime.mp4)
 
 <sub> Source : **[Youtube](https://www.youtube.com/watch/NuJceGJdDo8)** & **[bilibili](https://www.bilibili.com/video/BV1gL411n7rd/)** | Artist : **小驴子尾巴** | Subtitle by : **[@Weeblicious](https://www.youtube.com/@Weeblicious)** </sub>
 
