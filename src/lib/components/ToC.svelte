@@ -38,6 +38,8 @@
             readingTime: string;
         };
     };
+
+    let skip_scroll = false;
     beforeUpdate(() => {
         updateHeadings();
     });
@@ -55,10 +57,6 @@
             const heading_element = document.getElementById(item.id);
             if (heading_element) elements = [...new Set([...elements, heading_element])];
         });
-    };
-    const isInViewport = (targetElement: HTMLElement) => {
-        const rect = targetElement.getBoundingClientRect();
-        return rect.top >= 0 && rect.left >= 0 && rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) && rect.right <= (window.innerWidth || document.documentElement.clientWidth);
     };
 
     let prevScrollY = 0,
@@ -80,6 +78,10 @@
     let largest_true_key: number;
 
     const setActiveHeading = debounce(() => {
+        if (skip_scroll) {
+            return;
+        }
+
         elements.forEach((item) => {
             (observer as IntersectionObserver).observe(item);
         });
@@ -133,7 +135,20 @@
                         Math.max(0, heading.depth - 1)
                     }`}
                 >
-                    <div class="ml-2"><a href={`#${heading.id}`}>{heading.value}</a></div>
+                    <div class="ml-2">
+                        <a
+                            on:click={(e) => {
+                                skip_scroll = true;
+                                activeHeading = heading;
+                                setTimeout(() => {
+                                    skip_scroll = false;
+                                }, 100);
+                            }}
+                            href={`#${heading.id}`}
+                        >
+                            {heading.value}
+                        </a>
+                    </div>
                 </li>
             {/each}
         </ul>
