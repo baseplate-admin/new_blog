@@ -1,6 +1,6 @@
 ---
 title: When you shell everyday
-date: 2023-9-28
+date: 2023-9-19
 tags: Stories from BAUET
 ---
 
