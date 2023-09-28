@@ -1,5 +1,5 @@
 ---
-title: When you shell everyday
+title: Newton's ring
 date: 2023-9-10
 tags: Stories from BAUET
 ---
