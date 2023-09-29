@@ -82,6 +82,10 @@
         if (skip_scroll) {
             return;
         }
+        // There's no elements
+        if (elements.length === 0){
+            return;
+        }
 
         elements.forEach((item) => {
             (observer as IntersectionObserver).observe(item);
