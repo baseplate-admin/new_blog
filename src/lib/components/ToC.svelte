@@ -39,9 +39,25 @@
         };
     };
 
+    function getClosestNumber(d:number,array:Array<any.any>) {
+        return array.reduce((a, b) => b <=d && a < b ? b : a, 0 )
+    }
+    function isInViewport(element:HTMLElement) {
+        const rect = element.getBoundingClientRect();
+        return (
+            rect.top >= 0 &&
+            rect.left >= 0 &&
+            rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+            rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+        );
+    }
+
     let skip_scroll = false;
     beforeUpdate(() => {
         updateHeadings();
+        distance_from_elements = elements.map(item=>{
+        return item.getBoundingClientRect().top - document.body.getBoundingClientRect().top
+    })
     });
     onMount(() => {
         setActiveHeading();
@@ -60,25 +76,12 @@
         });
     };
 
-    let prevScrollY = 0,
-        scrollDirection = "up";
-    let intersection_index: Record<number, boolean> = {};
 
-    const options = {
-        root: null,
-        threshold: 0.2
-    };
-    const callback = function (entries: any[], observer: any) {
-        entries.forEach((entry) => {
-            intersection_index[elements.indexOf(entry.target)] = entry.isIntersecting;
-        });
-    };
-    let observer = browser && new IntersectionObserver(callback, options);
+    let distance_from_elements:Array<number,number> ;
 
-    let scrolled_passed_last_element: boolean;
-    let largest_true_key: number;
 
-    const setActiveHeading = debounce(() => {
+    const setActiveHeading = (event) => {      
+        
         if (skip_scroll) {
             return;
         }
@@ -87,43 +90,17 @@
             return;
         }
 
-        elements.forEach((item) => {
-            (observer as IntersectionObserver).observe(item);
-        });
-        const true_keys = Object.keys(intersection_index)
-            .filter((key) => intersection_index[Number(key)] === true)
-            .map((str) => Number(str));
+       
 
-        if (true_keys.length > 0) {
-            largest_true_key = Math.max(...true_keys);
+        // Side Effect
+        if (isInViewport(elements.at(-1))){
+            activeHeading = headings.at(-1)
+            return;
         }
-
-        const scrollY = window.scrollY,
-            newScrollDirection = scrollY > prevScrollY ? "down" : "up";
-        prevScrollY = scrollY;
-        scrollDirection = newScrollDirection;
-
-        const last_element = elements.at(-1) as HTMLElement;
-        if (scrollY > last_element.offsetTop + last_element.offsetHeight) {
-            scrolled_passed_last_element = true;
-        } else {
-            scrolled_passed_last_element = false;
-        }
-
-        if (scrollDirection === "up") {
-            if (true_keys.length === 0 && !scrolled_passed_last_element) {
-                activeHeading = headings[largest_true_key - 1];
-            } else {
-                activeHeading = headings[Math.min(...true_keys)];
-            }
-        } else if (scrollDirection === "down") {
-            if (true_keys.length === 0 && !scrolled_passed_last_element) {
-                activeHeading = headings[largest_true_key];
-            } else {
-                activeHeading = headings[Math.max(...true_keys)];
-            }
-        }
-    }, 5);
+        
+        const active_number = getClosestNumber(window.pageYOffset, distance_from_elements);
+        activeHeading = headings[distance_from_elements.indexOf(active_number)]
+    };
 </script>
 
 <svelte:window on:scroll={setActiveHeading} />
