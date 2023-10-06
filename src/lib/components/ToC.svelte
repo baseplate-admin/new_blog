@@ -42,6 +42,15 @@
     function getClosestNumber(d:number,array:Array<any.any>) {
         return array.reduce((a, b) => b <=d && a < b ? b : a, 0 )
     }
+    function isInViewport(element:HTMLElement) {
+        const rect = element.getBoundingClientRect();
+        return (
+            rect.top >= 0 &&
+            rect.left >= 0 &&
+            rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+            rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+        );
+    }
 
     let skip_scroll = false;
     beforeUpdate(() => {
@@ -67,13 +76,11 @@
         });
     };
 
-    let prevScrollY = 0,
-        scrollDirection = "up";
 
     let distance_from_elements:Array<number,number> ;
 
 
-    const setActiveHeading = debounce((event) => {      
+    const setActiveHeading = (event) => {      
         
         if (skip_scroll) {
             return;
@@ -83,20 +90,17 @@
             return;
         }
 
-        const scrollY = window.scrollY,
-            newScrollDirection = scrollY > prevScrollY ? "down" : "up";
-        prevScrollY = scrollY;
-        scrollDirection = newScrollDirection;
+       
 
+        // Side Effect
+        if (isInViewport(elements.at(-1))){
+            activeHeading = headings.at(-1)
+            return;
+        }
         
         const active_number = getClosestNumber(window.pageYOffset, distance_from_elements);
-        if (scrollDirection === "up") {
-           activeHeading = headings[distance_from_elements.indexOf(active_number)]
-        } else if (scrollDirection === "down") {
-            activeHeading = headings[distance_from_elements.indexOf(active_number)]
-        }
-
-    }, 5);
+        activeHeading = headings[distance_from_elements.indexOf(active_number)]
+    };
 </script>
 
 <svelte:window on:scroll={setActiveHeading} />
