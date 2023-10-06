@@ -71,6 +71,8 @@
     };
 
     let distance_from_elements: Array<number>;
+    let prevScrollY = 0,
+        scrollDirection = "up";
 
     const setActiveHeading = () => {
         if (skip_scroll) {
@@ -81,14 +83,22 @@
             return;
         }
 
+        const scrollY = window.scrollY,
+            newScrollDirection = scrollY > prevScrollY ? "down" : "up";
+        prevScrollY = scrollY;
+        scrollDirection = newScrollDirection;
+
         // Side Effect
-        if (isInViewport(elements.at(0)!)) {
-            activeHeading = headings.at(0)!;
-            return;
-        }
-        if (isInViewport(elements.at(-1)!)) {
-            activeHeading = headings.at(-1)!;
-            return;
+        if (scrollDirection === "up") {
+            if (isInViewport(elements.at(-1)!)) {
+                activeHeading = headings.at(-1)!;
+                return;
+            }
+        } else if (scrollDirection === "down") {
+            if (isInViewport(elements.at(0)!)) {
+                activeHeading = headings.at(0)!;
+                return;
+            }
         }
 
         const active_number = getClosestNumber(window.pageYOffset, distance_from_elements);
