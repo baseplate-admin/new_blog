@@ -42,6 +42,7 @@
     function getClosestNumber(d:number,array:Array<any.any>) {
         return array.reduce((a, b) => b <=d && a < b ? b : a, 0 )
     }
+    // https://www.javascripttutorial.net/dom/css/check-if-an-element-is-visible-in-the-viewport/
     function isInViewport(element:HTMLElement) {
         const rect = element.getBoundingClientRect();
         return (
