@@ -25,7 +25,7 @@ export default {
  * Adds support to video files in markdown image links
  */
 function videos() {
-  const extensions = ['mp4', 'webm', 'av1']
+  const extensions = ['mp4', 'webm']
   return function transformer(tree) {
     visit(tree, 'image', (node) => {
       if (extensions.some((ext) => node.url.endsWith(ext))) {
