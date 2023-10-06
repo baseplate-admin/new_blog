@@ -39,9 +39,16 @@
         };
     };
 
+    function getClosestNumber(d:number,array:Array<any.any>) {
+        return array.reduce((a, b) => b <=d && a < b ? b : a, 0 )
+    }
+
     let skip_scroll = false;
     beforeUpdate(() => {
         updateHeadings();
+        distance_from_elements = elements.map(item=>{
+        return item.getBoundingClientRect().top - document.body.getBoundingClientRect().top
+    })
     });
     onMount(() => {
         setActiveHeading();
@@ -63,20 +70,11 @@
     let prevScrollY = 0,
         scrollDirection = "up";
 
+    let distance_from_elements:Array<number,number> ;
 
 
-    const setActiveHeading = debounce((event) => {
-        let distance_from_elements:Array<number,number> = new Array();
-
-        elements.forEach((item,index)=>{ 
-            distance_from_elements[index] = item.getBoundingClientRect().top - document.body.getBoundingClientRect().top ;
-        });
-
-
-        console.log(window.pageYOffset)
-        console.log(distance_from_elements)
-
-        console.log(distance_from_elements)
+    const setActiveHeading = debounce((event) => {      
+        
         if (skip_scroll) {
             return;
         }
@@ -85,6 +83,7 @@
             return;
         }
 
+        const active_number = getClosestNumber(window.pageYOffset, distance_from_elements);
 
 
         const scrollY = window.scrollY,
@@ -95,9 +94,10 @@
         
 
         if (scrollDirection === "up") {
-           
+           activeHeading = headings[distance_from_elements.indexOf(active_number)]
         } else if (scrollDirection === "down") {
-            
+            activeHeading = headings[distance_from_elements.indexOf(active_number)]
+
         }
     }, 5);
 </script>
