@@ -82,6 +82,10 @@
         }
 
         // Side Effect
+        if (isInViewport(elements.at(0)!)) {
+            activeHeading = headings.at(0)!;
+            return;
+        }
         if (isInViewport(elements.at(-1)!)) {
             activeHeading = headings.at(-1)!;
             return;
