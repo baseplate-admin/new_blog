@@ -62,23 +62,21 @@
 
     let prevScrollY = 0,
         scrollDirection = "up";
-    let intersection_index: Record<number, boolean> = {};
 
-    const options = {
-        root: null,
-        threshold: 0.2
-    };
-    const callback = function (entries: any[], observer: any) {
-        entries.forEach((entry) => {
-            intersection_index[elements.indexOf(entry.target)] = entry.isIntersecting;
+
+
+    const setActiveHeading = debounce((event) => {
+        let distance_from_elements:Array<number,number> = new Array();
+
+        elements.forEach((item,index)=>{ 
+            distance_from_elements[index] = item.getBoundingClientRect().top - document.body.getBoundingClientRect().top ;
         });
-    };
-    let observer = browser && new IntersectionObserver(callback, options);
 
-    let scrolled_passed_last_element: boolean;
-    let largest_true_key: number;
 
-    const setActiveHeading = debounce(() => {
+        console.log(window.pageYOffset)
+        console.log(distance_from_elements)
+
+        console.log(distance_from_elements)
         if (skip_scroll) {
             return;
         }
@@ -87,41 +85,19 @@
             return;
         }
 
-        elements.forEach((item) => {
-            (observer as IntersectionObserver).observe(item);
-        });
-        const true_keys = Object.keys(intersection_index)
-            .filter((key) => intersection_index[Number(key)] === true)
-            .map((str) => Number(str));
 
-        if (true_keys.length > 0) {
-            largest_true_key = Math.max(...true_keys);
-        }
 
         const scrollY = window.scrollY,
             newScrollDirection = scrollY > prevScrollY ? "down" : "up";
         prevScrollY = scrollY;
         scrollDirection = newScrollDirection;
 
-        const last_element = elements.at(-1) as HTMLElement;
-        if (scrollY > last_element.offsetTop + last_element.offsetHeight) {
-            scrolled_passed_last_element = true;
-        } else {
-            scrolled_passed_last_element = false;
-        }
+        
 
         if (scrollDirection === "up") {
-            if (true_keys.length === 0 && !scrolled_passed_last_element) {
-                activeHeading = headings[largest_true_key - 1];
-            } else {
-                activeHeading = headings[Math.min(...true_keys)];
-            }
+           
         } else if (scrollDirection === "down") {
-            if (true_keys.length === 0 && !scrolled_passed_last_element) {
-                activeHeading = headings[largest_true_key];
-            } else {
-                activeHeading = headings[Math.max(...true_keys)];
-            }
+            
         }
     }, 5);
 </script>
