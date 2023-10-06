@@ -83,10 +83,8 @@
             return;
         }
 
-        const scrollY = window.scrollY,
-            newScrollDirection = scrollY > prevScrollY ? "down" : "up";
-        prevScrollY = scrollY;
-        scrollDirection = newScrollDirection;
+        prevScrollY = window.scrollY;
+        scrollDirection = scrollY > prevScrollY ? "down" : "up";
 
         // Side Effect
         if (scrollDirection === "up") {
@@ -101,7 +99,7 @@
             }
         }
 
-        const active_number = getClosestNumber(window.pageYOffset, distance_from_elements);
+        const active_number = getClosestNumber(window.scrollY, distance_from_elements);
         activeHeading = headings[distance_from_elements.indexOf(active_number)];
     };
 </script>
