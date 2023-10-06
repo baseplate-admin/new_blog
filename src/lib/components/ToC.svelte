@@ -83,22 +83,19 @@
             return;
         }
 
-        const active_number = getClosestNumber(window.pageYOffset, distance_from_elements);
-
-
         const scrollY = window.scrollY,
             newScrollDirection = scrollY > prevScrollY ? "down" : "up";
         prevScrollY = scrollY;
         scrollDirection = newScrollDirection;
 
         
-
+        const active_number = getClosestNumber(window.pageYOffset, distance_from_elements);
         if (scrollDirection === "up") {
            activeHeading = headings[distance_from_elements.indexOf(active_number)]
         } else if (scrollDirection === "down") {
             activeHeading = headings[distance_from_elements.indexOf(active_number)]
-
         }
+
     }, 5);
 </script>
 
