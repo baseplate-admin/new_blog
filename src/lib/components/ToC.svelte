@@ -58,7 +58,7 @@
     });
 
     let headings = post.headings,
-        activeHeading = headings[0],
+        activeHeading: (typeof headings)[0],
         elements: HTMLElement[] = new Array();
 
     const updateHeadings = () => {
