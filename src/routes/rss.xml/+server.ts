@@ -10,7 +10,7 @@ export const prerender = true
 
 // update this to something more appropriate for your website
 const websiteDescription = `${name}'s blog`
-const postsUrl = `${website}/posts`
+const postsUrl = `${website}/post`
 
 
 export const GET: RequestHandler = ({ setHeaders }) => {
