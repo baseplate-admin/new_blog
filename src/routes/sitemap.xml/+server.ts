@@ -2,7 +2,7 @@ import type { RequestHandler } from './$types';
 import { posts } from '$lib/data/posts';
 import { website } from '$lib/info';
 
-export const prerender = true;
+// export const prerender = true;
 
 const getPostUrl = (slug: string) => `${website}/post/${slug}`;
 
