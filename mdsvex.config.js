@@ -9,7 +9,7 @@ export default {
   smartypants: {
     dashes: 'oldschool'
   },
-  remarkPlugins: [videos, relativeImages, headings],
+  remarkPlugins: [videos, pdf,  relativeImages, headings],
   rehypePlugins: [
     slugPlugin,
     [
@@ -19,6 +19,24 @@ export default {
       }
     ]
   ]
+}
+
+function pdf(){
+  const extensions = ['pdf']
+  return function transformer(tree){
+    visit(tree, 'image' ,(node)=>{
+      if (extensions.some((ext) => node.url.endsWith(ext))) {
+        node.type = 'html'
+        node.value = `
+            <object
+                type="application/pdf"
+                data="${node.url}"
+                title="${node.alt}"
+            ></object>
+        `
+      }
+    })
+  }
 }
 
 /**
