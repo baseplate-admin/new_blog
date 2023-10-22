@@ -19,7 +19,7 @@ Well I am glad you asked.
 # `svelte` 5 is a mess
 `svelte` is not all sunshine and rainbows.
 
-`svelte` 3-4 has the nicest API possible.
+`svelte` 3-4 had the nicest API possible.
 
 Take for example:
 
@@ -34,7 +34,7 @@ let count = writable(0);
 }>click</button>
 ```
 
-This became something like:
+This became something like in `svelte` 5:
 
 ```svelte
 <script lang='ts'>
@@ -56,7 +56,6 @@ const count = {
     }
 }>Click</button>
 ```
-in `svelte` 5.
 
 See the problem? This is the route `react` took with their [context api](https://react.dev/learn/passing-data-deeply-with-context) 
 
@@ -64,8 +63,11 @@ See the problem? This is the route `react` took with their [context api](https:/
 
 Coming from `react` land, this gives me PTSD.
 
-Some people might say, ["But it's opt out, if you dont like it you dont have to use it"](https://www.reddit.com/r/sveltejs/comments/16nm7r5/comment/k1hn6ow/).
+> Some people might say, ["But it's opt out, if you dont like it you dont have to use it"](https://www.reddit.com/r/sveltejs/comments/16nm7r5/comment/k1hn6ow/).
+
 To which I reply, "[Rich hinted that runes will be the default way moving forward](https://news.ycombinator.com/item?id=37585384)"
+
+`svelte` lost its original vision, instead they are going for a different direction ( to which not sure i agree with )
 
 # Jamstack gets expensive
 The data transfer between backend and frontend gets expensive relatively quickly. 
@@ -115,3 +117,82 @@ There's no good text editor ( that's native ) for `svelte`. [Posts like this](ht
 
 # The move
 
+So, why did I move to `django`?
+
+For starters `django` does a whole lot of things right ( that's a post for another day ). 
+
+Some benefits:
+*    With the help of [`django-components`](https://github.com/EmilStenstrom/django-components) we can even recreate the components from `svelte`
+*    With the help of [`django-tailwind`](https://github.com/timonweb/django-tailwind) we can use [`tailwind`](https://github.com/tailwindlabs/tailwindcss) in our `django` app 
+
+Our new stack:
+
+<ul>
+
+<li>
+
+<div style='display:flex; align-items: center;gap:0.5rem'> 
+
+`htmx`
+
+![htmx](./htmx.png)
+
+
+</div>
+
+</li>
+
+<li>
+
+<div style='display:flex; align-items: center;gap:0.5rem'> 
+
+`django` 
+
+![django](./django.png)
+
+
+</div>
+
+</li>
+
+<li>
+
+<div style='display:flex; align-items: center;gap:0.5rem'> 
+
+`tailwindcss` 
+
+![tailwind](./tailwind.png)
+
+
+</div>
+
+</li>
+
+<li>
+
+<div style='display:flex; align-items: center;gap:0.5rem'> 
+
+`hyperscript` 
+
+![hyperscript](./hyperscript.png)
+
+
+</div>
+
+</li>
+
+</ul>
+
+
+
+# Conclusion
+
+I had really hoped that `svelte` would be my last framework. But the way things are moving forward, I am currently unsure if this would be the case. 
+
+Having many ways to do the same thing is why `perl` died and `react` became a mess.
+
+<em>
+
+`svelte` should get their direction right ( they originally had the motto ["Reactivity by Default"](https://www.youtube.com/watch?v=qqt6YxAZoOc) ), should that happen i will return to `svelte`.
+
+</em>
