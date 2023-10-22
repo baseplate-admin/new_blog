@@ -4,12 +4,12 @@ date: 2023-10-22
 tags: htmx, svelte, django, coreproject
 ---
 
-`svelte` is the most popular framework ( or in [2021](https://insights.stackoverflow.com/survey/2021#section-most-loved-dreaded-and-wanted-web-frameworks) that was the case ). There's no debate over the fact that [svelte does some things right](https://medium.com/@arxpoetica/top-5-reasons-you-should-use-svelte-on-your-current-project-right-now-e2f6835e904f).
+`svelte` is the most popular framework ( or in [2021](https://insights.stackoverflow.com/survey/2021#section-most-loved-dreaded-and-wanted-web-frameworks) that was the case ). There's no debate over the fact that [`svelte` does some things right](https://medium.com/@arxpoetica/top-5-reasons-you-should-use-svelte-on-your-current-project-right-now-e2f6835e904f).
 
-Pros of svelte:
+Pros of `svelte`:
 * No virtual DOM
 * Less boilerplate
-* Truly reactive ( or it was before svelte 5 )
+* Truly reactive ( or it was before `svelte` 5 )
 
 
 So if `svelte` is a bag of goodies, why move away from it?
@@ -85,17 +85,33 @@ Take for example we send this data from one of our endpoints :
 
 But let's say we use only `Joe` from the above example. We still need to send everything from backend. 
 
-When the payload gets large ( about 129kb ) from our backend on each request, it gets expensive.
+When the payload gets large ( about **129kb** ) from our backend on each request, it gets expensive.
 
 # `svelte` community is confused and possible diverted
 Oh boy, where do we start.
 
-For starters, projects like [`pelte`](https://pelte.dev/) [popped up](https://www.reddit.com/r/sveltejs/comments/16pjccm/pelte_putting_svelte_back_into_svelte_5/) right after rich announced svelte 5.
+For starters, projects like [`pelte`](https://pelte.dev/) [popped up](https://www.reddit.com/r/sveltejs/comments/16pjccm/pelte_putting_svelte_back_into_svelte_5/) right after rich announced `svelte` 5.
 
 Posts like these popped started appearing on reddit:
 * [How does Svelte 5 w/ Runes differentiate itself from Vue (i.e. why use Svelte vs Vue going forward)](https://www.reddit.com/r/sveltejs/comments/16uiiqf/how_does_svelte_5_w_runes_differentiate_itself/)
 * [\[Meta\] Svelte vs X](https://www.reddit.com/r/sveltejs/comments/16zdvdz/meta_svelte_vs_x/)
 
-These indicate that a portion ( may be small ) shifted away from svelte after the announcement.
+These indicate that a portion ( may be small ) shifted away from `svelte` after the announcement.
 
 # Authentication between `SPA` and decoupled backend is hard
+
+For starters, if you have a `django` backend, you dont have a straightforward way to do authentication from backend and frontend. 
+
+You can do something like token authentication, but the problem rises with storing the token securely, then validating the token, ....
+
+The token can be stored securely ( specially if you use something like `sveltekit` ) but the process is cumbersome ( server side route, setting https only cookie from server ) and it takes time to set everything up. Minus point is you lose client side routing if you go with this route.
+
+
+# The ecosystem is brittle
+
+The entire `svelte` ecosystem didn't get that much mature even after 2-3 years. For example there's nothing like [`mantine`](https://mantine.dev) for `svelte`. Well [`skeleton`](https://skeleton.dev) exists but it's a relatively young project with countless bugs.
+
+There's no good text editor ( that's native ) for `svelte`. [Posts like this](https://www.reddit.com/r/sveltejs/comments/17cgmts/rich_text_editor/) echo this problem.
+
+# The move
+
