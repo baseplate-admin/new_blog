@@ -183,6 +183,52 @@ Our new stack:
 
 </ul>
 
+### Authentication
+
+For `django` we can do something like:
+
+```jinja
+{% if request.user.is_authenticated %}
+    <!--Do something-->
+{% endif %}
+```
+
+To do this in `svelte` I probably would have to show either a `skeleton`  or a loading spinner
+
+### No `node.js` server in production
+
+Doing everything in `django` means I don't have to deal with `node.js` docker container, saving resources and improving efficiency
+
+
+
+### No fetching data from backend
+
+We can return the html rendered by `django`, no need to fetch data back and forth.
+
+```jinja
+welcome back {{ request.user }}
+```
+
+### With hyperscript we can add **event driven** interactions 
+
+Take for example :
+
+```hyperscript
+on hyperscript:change(url)
+    if url !== '{{icon.href}}'
+        put 'btn btn-icon relative w-[4vw] h-[4vw] border-none rounded-[0.75vw] p-0 !bg-transparent' into my.classList
+        remove .hidden from <span/> in me
+    else
+        put 'btn btn-icon relative w-[4vw] h-[4vw] border-none rounded-[0.75vw] p-0 relative !bg-accent before:absolute before:-left-[0.15vw] before:z-10 before:h-[1.25vw] before:w-[0.25vw] before:rounded-full before:bg-primary-500' into my.classList
+    end
+on htmx:afterRequest
+    add .blur-sm
+    then wait 100ms
+    send hyperscript:change(url:event.detail.pathInfo.responsePath) to <icon/> in <glider-container/>
+    send hyperscript:change(url:event.detail.pathInfo.responsePath) to <button/> in <glider-container/>
+```
+
+This doesn't look that great compared to `svelte` but, we can achieve the same functionality provided by `svelte`.
 
 
 # Conclusion
