@@ -241,4 +241,8 @@ Having many ways to do the same thing is why `perl` died and `react` became a me
 
 `svelte` should get their direction right ( they originally had the motto ["Reactivity by Default"](https://www.youtube.com/watch?v=qqt6YxAZoOc) ), should that happen i will return to `svelte`.
 
+
+
 </em>
+
+Don't  get me wrong, I still do absolutely love the innovations brought by `svelte` ( that's why [my blog uses `svelte`](https://github.com/baseplate-admin/new_blog/tree/312098c5a25edf052f6a8582aa7731bd62feae2c) ), it's just that I am not gonna rely on `svelte` for my main project moving forward. 
