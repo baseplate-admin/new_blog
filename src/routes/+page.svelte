@@ -1,11 +1,11 @@
-<script>
+<script lang="ts">
     import ArrowRightIcon from "$lib/components/ArrowRightIcon.svelte";
     import PostsList from "$lib/components/PostsList.svelte";
     import SocialLinks from "$lib/components/SocialLinks.svelte";
     import { avatar, bio, name } from "$lib/info";
+    import type { PageData } from "./$types";
 
-    /** @type {import('./$types').PageData} */
-    export let data;
+    export let data: PageData;
 </script>
 
 <svelte:head>
