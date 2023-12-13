@@ -18,7 +18,7 @@ So after playing Genshin I was delving deeper into it's fanfiction and stuff. On
 
 Source : [**Youtube**](https://www.youtube.com/watch/KpZvpVcmo5Q) & [**bilibili**](https://www.bilibili.com/video/BV1MP4y1p7UH/) | Artist : **果依123** | Subtitle by : [**@Weeblicious**](https://www.youtube.com/@Weeblicious)
 
- </sub>
+</sub>
 
 and this video too :
 
