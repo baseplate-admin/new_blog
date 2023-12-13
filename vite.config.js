@@ -14,12 +14,12 @@ export default defineConfig({
     "**/*.av1",
   ],
   build: {
-    target: "esnext",
-    sourcemap: true,
+    target: "es2015",
+    // sourcemap: true,
     
 },
 css: {
-    devSourcemap: true
+    // devSourcemap: true
 },
   // allows vite access to ./posts
   server: {
