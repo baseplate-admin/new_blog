@@ -8,7 +8,7 @@ Today ( well not really, this was written in 12-13-2023 at 10:54 ) is the day I 
 
 Here's how it looks : 
 
-![After 4 years with RGB](./After%204%20years%20with%20RGB.jpg)
+![After 4 years with RGB](./After%204%20years%20with%20RGB.avif)
 
 <sub>
 <center>
@@ -18,7 +18,7 @@ Here's how it looks :
 </center>
 </sub>
 
-![4 years after without RGB Lighting](./4%20years%20after%20without%20RGB%20Lighting.jpg)
+![4 years after without RGB Lighting](./4%20years%20after%20without%20RGB%20Lighting.avif)
 
 <sub>
 <center>
@@ -28,7 +28,7 @@ Here's how it looks :
 </center>
 </sub>
 
-![Without Keycaps](./Without%20Keycaps.jpg)
+![Without Keycaps](./Without%20Keycaps.avif)
 
 <sub>
 <center>
