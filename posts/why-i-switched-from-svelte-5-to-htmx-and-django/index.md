@@ -42,7 +42,7 @@ let countRune = $state(0)
 const count = {
     get value(){
         return countRune
-    }
+    },
     set value(v){
         countRune = v
     }
