@@ -48,7 +48,7 @@
 	"dependencies": {
 		"@vercel/analytics": "^1.1.1",
 		"clsx": "^2.0.0",
-		"date-fns": "^3.0.0",
+		"date-fns": "^3.0.1",
 		"heroicons-svelte": "^2.0.0",
 		"node-html-parser": "^6.1.11",
 		"reading-time": "^1.5.0",
