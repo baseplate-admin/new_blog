@@ -47,7 +47,7 @@
 	"type": "module",
 	"dependencies": {
 		"@vercel/analytics": "^1.1.1",
-		"clsx": "^2.0.0",
+		"clsx": "^2.1.0",
 		"date-fns": "^3.0.6",
 		"heroicons-svelte": "^2.0.0",
 		"node-html-parser": "^6.1.12",
