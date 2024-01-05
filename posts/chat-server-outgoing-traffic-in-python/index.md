@@ -37,13 +37,17 @@ All names are case-sensitive.
 Print a single number — answer to the problem.
 
 <table>
+
 <thead>
     <tr>
       <th>Example</th>
       <th>Input</th>
       <th>Output</th>
     </tr>
-  </thead>
+</thead>
+
+<tbody>
+
 <tr>
 
 <td>
@@ -107,6 +111,8 @@ Mike:Hi   I am here
     
 </td>
 </tr>
+
+</tbody>
 
 </table>
 
