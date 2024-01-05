@@ -54,3 +54,13 @@ pre[class*='language-'] {
 .token.deleted-sign {
   color:theme('colors.pink.400')
 }
+
+/** Builtin type */
+.token.builtin{
+  color:theme('colors.yellow.300')
+}
+
+/** Operators */
+.token.operator{
+  color: theme('colors.teal.200')
+}
