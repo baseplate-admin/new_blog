@@ -14,7 +14,7 @@ export default defineConfig({
     "**/*.av1",
   ],
   build: {
-    target: "es2015",
+    target: "esnext",
     // sourcemap: true,
     
 },

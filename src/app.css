@@ -1,6 +1,7 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
-@import './prism.css';
+/* @import './prism.css'; */
+@import "./prism.vs.css";
 @import 'tailwindcss/utilities';
 
 @layer base {
