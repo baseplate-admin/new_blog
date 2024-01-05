@@ -36,6 +36,8 @@ All names are case-sensitive.
 
 Print a single number — answer to the problem.
 
+# Examples
+
 <table>
 <thead>
   <tr>
@@ -109,7 +111,7 @@ Mike:Hi   I am here
 
 </table>
 
-# Analyze
+# Analyzation
 
 So we can see that in first problem we can conclude that: 
 * If there is a `+` in front of the string, it should increatment a variable ( say `participants` )
