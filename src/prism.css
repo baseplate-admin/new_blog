@@ -12,13 +12,13 @@ pre[class*='language-'] {
 }
 
 .token.attr-name,
-.token.keyword,
 .token.rule,
 .token.pseudo-class,
 .token.important {
   color: theme('colors.zinc.300');
 }
 
+.token.keyword,
 .token.module {
   color: theme('colors.pink.400');
 }
