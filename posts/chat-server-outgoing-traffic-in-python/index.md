@@ -38,10 +38,12 @@ Print a single number — answer to the problem.
 
 <table>
 <thead>
-    <th>Example</th>
-    <th>Input</th>
-    <th>Output</th>
-</thead>
+    <tr>
+      <th>Example</th>
+      <th>Input</th>
+      <th>Output</th>
+    </tr>
+  </thead>
 <tr>
 
 <td>
