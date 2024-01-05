@@ -37,17 +37,17 @@ All names are case-sensitive.
 Print a single number — answer to the problem.
 
 <table>
-  <tr>
+<thead>
     <th>Example</th>
     <th>Input</th>
     <th>Output</th>
-  </tr>
-  <tr>
+</thead>
+<tr>
+
 <td>
-
-1
-
+<p>1</p>
 </td>
+
 <td>
     
 
@@ -63,6 +63,7 @@ Kate:hi
     
 
 </td>
+
 <td>
 
 ```python
@@ -72,10 +73,13 @@ Kate:hi
     
 </td>
 </tr>
+
+
 <tr>
+
 <td>
 
-2
+<p>2</p>
 
 </td>
 <td>
@@ -98,7 +102,6 @@ Mike:Hi   I am here
 ```python
 14
 ```
-    
     
 </td>
 </tr>
