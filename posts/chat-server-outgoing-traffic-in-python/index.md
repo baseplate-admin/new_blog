@@ -41,18 +41,13 @@ Print a single number — answer to the problem.
 <table>
 <thead>
   <tr>
-    <th>Example</th>
     <th>Input</th>
     <th>Output</th>
   </tr>
 </thead>
 <tbody>
 <tr>
-<td>
 
-1
-
-</td>
 <td>
     
 
@@ -78,11 +73,7 @@ Kate:hi
 </td>
 </tr>
 <tr>
-<td>
 
-2
-
-</td>
 <td>
     
 

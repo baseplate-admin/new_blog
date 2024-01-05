@@ -23,18 +23,13 @@ Print `YES`, if the boys can divide the watermelon into two parts, each of them 
 <table>
 <thead>
   <tr>
-    <th>Example</th>
     <th>Input</th>
     <th>Output</th>
   </tr>
 </thead>
 <tbody>
 <tr>
-<td>
 
-1
-
-</td>
 <td>
     
 
@@ -69,6 +64,6 @@ So basically this problem wants us to return :
 ```python
 number: int = int(input(""))
 
-print("YES") if number > 2 and number % 2 ==0 else print("NO")
+print("YES") if number > 2 and number % 2 == 0 else print("NO")
 
 ```
