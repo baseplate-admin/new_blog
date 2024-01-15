@@ -122,7 +122,9 @@
 
             <!-- render the post -->
             <div class="prose dark:prose-invert">
-                <svelte:component this={data.component} />
+                <main>
+                    <svelte:component this={data.component} />
+                </main>
             </div>
         </article>
 

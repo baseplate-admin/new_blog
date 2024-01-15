@@ -54,12 +54,12 @@
                     <SunIcon class="block text-zinc-400 dark:hidden" />
                 </button>
             </header>
-            <main
+            <div
                 class="flex flex-col flex-grow w-full mx-auto"
                 class:max-w-2xl={!$page.data.layout?.fullWidth}
             >
                 <slot />
-            </main>
+            </div>
         </div>
     </div>
 </div>
