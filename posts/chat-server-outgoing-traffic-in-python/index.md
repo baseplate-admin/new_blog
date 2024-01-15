@@ -104,7 +104,7 @@ Mike:Hi   I am here
 
 # Analyzation
 
-So we can see that in first problem we can conclude that: 
+So we can see that in first problem: 
 * If there is a `+` in front of the string, it should increatment a variable ( say `participants` )
 * If there is a `-` in front of the string, it should decrement a variable ( say `participants` )
 
