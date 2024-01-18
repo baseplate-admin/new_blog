@@ -1,5 +1,5 @@
 ---
-title: Watermelon problem
+title: 4A. Watermelon problem
 date: 2023-10-24
 tags: CodeForces
 ---
