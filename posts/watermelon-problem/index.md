@@ -59,11 +59,29 @@ So basically this problem wants us to return :
 * If answer is divisible by 2 (return `YES`) [ for example 8 ]
 * If answer is less than 2 then by default (return `NO`) [ because 1 cant be divided by 2]
 
-# Solution
+# Solution ( Python )
 
 ```python
 number: int = int(input(""))
 
 print("YES") if number > 2 and number % 2 == 0 else print("NO")
 
+```
+
+# Solution ( C )
+
+```c
+#include <stdio.h>
+
+int main(){
+    int n;
+    scanf("%d",&n);
+    // printf("%d",n);
+    if (n > 2 && n % 2 == 0){
+        printf("YES\n");
+    }
+    else{
+        printf("NO\n");
+    }
+}
 ```
