@@ -11,7 +11,7 @@ export const load: PageServerLoad = ({ params,url }) => {
 
   redirects.forEach(item=>{
     if (url.pathname.includes(item.from)){
-      redirect(301,item.to)
+      return redirect(301,item.to)
     }
   })
 
