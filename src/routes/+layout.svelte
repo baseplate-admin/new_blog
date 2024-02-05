@@ -7,8 +7,11 @@
     import { page } from "$app/stores";
     import { dev } from "$app/environment";
     import { inject } from "@vercel/analytics";
+    import { injectSpeedInsights } from "@vercel/speed-insights/sveltekit";
 
+    // Vercel specific
     inject({ mode: dev ? "development" : "production" });
+    injectSpeedInsights();
 
     let isDarkMode = browser ? Boolean(document.documentElement.classList.contains("dark")) : true;
 
