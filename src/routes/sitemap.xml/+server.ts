@@ -42,7 +42,7 @@ export const GET: RequestHandler = ({ setHeaders }) => {
                   : new Date(post.date).toISOString()
               }</lastmod
             >
-            <changefreq>monthly</changefreq>
+            <changefreq>daily</changefreq>
             <priority>1.0</priority>
           </url>`
         )
