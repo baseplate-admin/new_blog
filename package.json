@@ -47,7 +47,7 @@
 	"type": "module",
 	"dependencies": {
 		"@vercel/analytics": "^1.1.4",
-		"@vercel/speed-insights": "^1.0.9",
+		"@vercel/speed-insights": "^1.0.10",
 		"clsx": "^2.1.0",
 		"date-fns": "^3.3.1",
 		"heroicons-svelte": "^2.0.0",
