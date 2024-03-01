@@ -93,12 +93,7 @@
                     }`}
                 >
                     <div class="ml-2">
-                        <a
-                            on:click={(e) => {
-                                activeHeading = heading;
-                            }}
-                            href={`#${heading.id}`}
-                        >
+                        <a href={`#${heading.id}`}>
                             {heading.value}
                         </a>
                     </div>
