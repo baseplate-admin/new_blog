@@ -49,7 +49,7 @@
 		"@vercel/analytics": "^1.2.2",
 		"@vercel/speed-insights": "^1.0.10",
 		"clsx": "^2.1.0",
-		"date-fns": "^3.3.1",
+		"date-fns": "^3.4.0",
 		"heroicons-svelte": "^2.0.0",
 		"node-html-parser": "^6.1.12",
 		"reading-time": "^1.5.0",
