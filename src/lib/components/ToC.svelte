@@ -1,107 +1,48 @@
-<script lang="ts">
-    import { beforeUpdate, onMount } from "svelte";
+<script>
+    import { browser } from "$app/environment";
+    import { onMount } from "svelte";
     import Card from "./Card.svelte";
-    export let post: {
-        title: string;
-        date: string;
-        tags: string;
-        headings: {
-            depth: number;
-            value: string;
-            id: string;
-        }[];
 
-        slug: string;
-        isIndexFile: true;
-        preview: {
-            html: string;
-            text: string;
-        };
-        readingTime: string;
-        previous: {
-            title: string;
-            date: string;
-            tags: "string";
-            headings: {
-                depth: number;
-                value: string;
-                id: string;
-            }[];
-            slug: string;
-            isIndexFile: boolean;
-            preview: {
-                html: string;
-                text: string;
-            };
-            readingTime: string;
-        };
-    };
+    export let post;
 
-    function getClosestNumber(d: number, array: Array<number>) {
-        return array.reduce((a, b) => (b <= d && a < b ? b : a), 0);
-    }
-    // https://www.javascripttutorial.net/dom/css/check-if-an-element-is-visible-in-the-viewport/
-    function isInViewport(element: HTMLElement) {
-        const rect = element.getBoundingClientRect();
-        return rect.top >= 0 && rect.left >= 0 && rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) && rect.right <= (window.innerWidth || document.documentElement.clientWidth);
-    }
+    let elements = [];
+    let headings = post.headings;
 
-    let skip_scroll = false;
-    beforeUpdate(() => {
-        updateHeadings();
-        distance_from_elements = elements.map((item) => {
-            return item.getBoundingClientRect().top - document.body.getBoundingClientRect().top;
-        });
-    });
     onMount(() => {
+        updateHeadings();
         setActiveHeading();
     });
 
-    let headings = post.headings,
-        activeHeading: (typeof headings)[0],
-        elements: HTMLElement[] = new Array();
+    let activeHeading = headings[0];
+    let scrollY;
 
-    const updateHeadings = () => {
+    function updateHeadings() {
         headings = post.headings;
-        headings.forEach((item) => {
-            const heading_element = document.getElementById(item.id);
 
-            if (heading_element) elements = [...new Set([...elements, heading_element])];
-        });
-    };
-
-    let distance_from_elements: Array<number>;
-    let prevScrollY = 0,
-        scrollDirection = "up";
-
-    const setActiveHeading = () => {
-        if (skip_scroll) {
-            return;
+        if (browser) {
+            elements = headings.map((heading) => {
+                return document.getElementById(heading.id);
+            });
         }
-        // There's no elements
-        if (elements.length === 0) {
-            return;
-        }
+    }
+    function setActiveHeading() {
+        scrollY = window.scrollY;
 
-        prevScrollY = window.scrollY;
-        scrollDirection = scrollY > prevScrollY ? "down" : "up";
+        const visibleIndex = elements.findIndex((element) => element.offsetTop + element.clientHeight > scrollY) - 1;
 
-        // Side Effect
-        if (scrollDirection === "up") {
-            if (isInViewport(elements.at(-1)!)) {
-                activeHeading = headings.at(-1)!;
-                return;
-            }
-        } else if (scrollDirection === "down") {
-            if (isInViewport(elements.at(0)!)) {
-                activeHeading = headings.at(0)!;
-                return;
+        activeHeading = headings[visibleIndex];
+
+        const pageHeight = document.body.scrollHeight;
+        const scrollProgress = (scrollY + window.innerHeight) / pageHeight;
+
+        if (!activeHeading) {
+            if (scrollProgress > 0.5) {
+                activeHeading = headings[headings.length - 1];
+            } else {
+                activeHeading = headings[0];
             }
         }
-        const active_number = getClosestNumber(window.scrollY, distance_from_elements);
-
-        activeHeading = headings[distance_from_elements.indexOf(active_number)];
-    };
+    }
 </script>
 
 <svelte:window on:scroll={setActiveHeading} />
@@ -115,23 +56,10 @@
                     class:active={activeHeading === heading}
                     style={`--depth: ${
                         // consider h1 and h2 at the same depth, as h1 will only be used for page title
-                        Math.max(0, heading.depth - 1)
+                        Math.max(0, heading.depth)
                     }`}
                 >
-                    <div class="ml-2">
-                        <a
-                            on:click={(e) => {
-                                skip_scroll = true;
-                                activeHeading = heading;
-                                setTimeout(() => {
-                                    skip_scroll = false;
-                                }, 100);
-                            }}
-                            href={`#${heading.id}`}
-                        >
-                            {heading.value}
-                        </a>
-                    </div>
+                    <a href={`#${heading.id}`}>{heading.value}</a>
                 </li>
             {/each}
         </ul>
