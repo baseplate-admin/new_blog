@@ -119,7 +119,7 @@ using namespace std;
 
 int main()
 {
-    const set<char> vowel_arr = {'a', 'e', 'i', 'o', 'u'};
+    const set<char> vowel_arr = {'a', 'e', 'i', 'o', 'u','y'};
 
     vector<char> a;
 
@@ -138,6 +138,7 @@ int main()
     }
     cout << endl;
 }
+
 
 ```
 

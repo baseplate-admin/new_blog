@@ -102,6 +102,7 @@ using namespace std;
 
 int main()
 {
+
     int n;
     cin >> n;
 
@@ -109,7 +110,7 @@ int main()
     {
         string s;
         cin >> s;
-        if (s.size() > 4)
+        if (s.size() > 10)
         {
             cout << s[0] << s.size() - 2 << s[s.size() - 1] << endl;
         }

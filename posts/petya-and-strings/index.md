@@ -119,3 +119,4 @@ elif string_2 < string_1:
 elif string_1 == string_2:
     print(0)
 ```
+

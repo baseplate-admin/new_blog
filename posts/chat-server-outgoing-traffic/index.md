@@ -114,7 +114,7 @@ Then we can use a `for` loop to iterate over each string to see if there is a `:
 Special Note:
 * You can't use `while` loop to get the user input. This is because `python` doesn't have a built in way to get `EOF`. That's why you use `sys.stdin`
 
-# Solution
+# Solution ( Python )
 
 [Chat server's outgoing traffic](https://codeforces.com/problemset/problem/5/A) is a fun problem to solve ( specially since you can't use `while` loop to get input )
 
@@ -151,3 +151,56 @@ print(bytes_send)
 ```
 
 
+# Solution ( C Plus Plus )
+
+```cpp
+#include <bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    vector<string> arr;
+    string s;
+
+    while (1)
+    {
+        char x = getchar();
+        if (x == EOF)
+            break;
+
+        if (x == '\n')
+        {
+
+            arr.push_back(s);
+            s = "";
+        }
+        else
+            s += x;
+    }
+    int participants = 0;
+    int bytes_send = 0;
+
+    for (auto p : arr)
+    {
+        if (p[0] == '+')
+            participants++;
+
+        else if (p[0] == '-')
+            participants--;
+        else
+        {
+
+            for (int i = 0; i < p.size(); i++)
+            {
+                char x = p[i];
+                if (x == ':')
+                {
+                    bytes_send += participants * (p.size() - (i + 1));
+                    break;
+                }
+            }
+        }
+    }
+    cout << bytes_send;
+}
+```
