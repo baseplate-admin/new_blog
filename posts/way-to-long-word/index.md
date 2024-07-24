@@ -75,7 +75,7 @@ So we can see that in the string:
    - Take the length of the string and minus 2 from it ( due to we removing first and last character )
    - Get the last character and store it in a variable
 
-# Solution
+# Solution ( Python )
 
 ```python
 no_of_cases = int(input())
@@ -91,4 +91,32 @@ for i in range(0, no_of_cases):
 
 
 print("\n".join(solution_list))
+```
+
+# Solution ( C++ )
+
+
+```cpp
+#include <bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    int n;
+    cin >> n;
+
+    while (n--)
+    {
+        string s;
+        cin >> s;
+        if (s.size() > 4)
+        {
+            cout << s[0] << s.size() - 2 << s[s.size() - 1] << endl;
+        }
+        else
+        {
+            cout << s << endl;
+        }
+    }
+}
 ```

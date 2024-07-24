@@ -140,13 +140,11 @@ for i in _input_list:
     i = i.replace("\n", "")
     if i[0] == "+":
         participants += 1
-        continue
     elif i[0] == "-":
         participants -= 1
-        continue
-
-    text = i.split(":")[-1]
-    bytes_send += len(text) * participants
+    else:
+      text = i.split(":")[-1]
+      bytes_send += len(text) * participants
 
 print(bytes_send)
 
